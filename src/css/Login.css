@@ -1,0 +1,54 @@
+/* Ensures the page content takes up the full height of the viewport */
+
+
+.login-page {
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-illustration{
+    display: flex;
+    flex: 1.7;
+}
+
+.login-background-image {
+    object-fit: cover;  /* Makes the image cover the container without stretching */
+    width: 100%;
+    height: 100%;  /* Make sure the image fills the entire container */
+}
+
+
+.login-center-container{
+    inset: 0px;
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+    flex-direction: row;
+    min-height: 70vh;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.login-container{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+}
+.login-form{
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.login-button{
+    margin: 20px;
+}
