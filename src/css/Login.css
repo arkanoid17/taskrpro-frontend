@@ -50,5 +50,11 @@
 }
 
 .login-button{
-    margin: 20px;
+    margin-top: 20px !important;
+}
+
+.login-loader{
+    width: 30px !important;
+    height: 30px !important;
+    margin-top: 20px !important;
 }

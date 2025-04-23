@@ -2,36 +2,68 @@ import React, { useState } from 'react';
 
 import { Container } from "@mui/system";
 import CustomTextField from "../components/CustomTextfield";
-import { Button } from "@mui/material";
+import { Button, CircularProgress } from "@mui/material";
 import { Typography } from '@mui/material';
 import '../css/Login.css';
 import apiCall from '../server/ApiCall'; 
 import ServerConstants from '../server/ServerConstants';
+import Toast from '../components/Toast';
+import { useNavigate } from 'react-router-dom';
+
 
 
 const loginBg = '/assets/loginbg.png';
 
+
+
 const Login = () => {
+
+  const navigate = useNavigate(); // Use the navigate function
 
     const [formData, setFormData] = useState({
         email: '',
         password: ''
       });
 
+      const [isLoading, setIsLoading] = useState(false);
+
+      const [toastOpen, setToastOpen] = useState(false);
+      const [toastMsg, setToastMsg] = useState('');
+      const [toastSeverity, setToastSeverity] = useState('success');
+
+
+      const showToast = (message, severity ) => {
+        setToastMsg(message);
+        setToastSeverity(severity);
+        setToastOpen(true);
+      };
      
 
       const handleSuccess = (data) =>{
         console.log('success')
+        setIsLoading(false);
+        const token = data.token
+        if(token!=null){
+          localStorage.setItem("token",token);
+          navigate('/dashboard');
+        }else{
+          showToast("Service not available at the moment!", "error");
+        }
       }
 
       const handleError = (e) =>{
-        console.log('error ',e)
+        console.log('error ',e.message)
+        setIsLoading(false);
+        showToast(e.message,"error");
       }
 
       
       const handleLogin = () => {
         console.log(formData.email);
         console.log(formData.password);
+
+        setIsLoading(true);
+
         apiCall({
             url: ServerConstants.baseUrl+ServerConstants.loginUrl,
             method: 'POST',
@@ -89,12 +121,22 @@ const Login = () => {
                     color="secondary"
                     name='password'/>
 
-                <Button color="secondary" variant="contained" className="login-button" onClick={handleLogin}>
-                    Login
-                </Button>
+                {
+                  isLoading?
+                  (<CircularProgress color='secondary' className='login-loader' thickness={8}/>):
+                  (<Button color="secondary" variant="contained" className="login-button" onClick={handleLogin}>
+                      Login
+                  </Button>)
+                }
 
                 </form>
 
+                <Toast
+                  open={toastOpen}
+                  message={toastMsg}
+                  severity={toastSeverity}
+                  onClose={() => setToastOpen(false)}
+                />
 
             </Container>
 
