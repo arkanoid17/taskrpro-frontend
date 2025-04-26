@@ -6,7 +6,7 @@ import BusinessIcon from '@mui/icons-material/Business';
 import { useEffect, useState } from "react";
 import '../css/UserToolTip.css';
 
-const UserToolTip = ({ open, anchorEl, handleClose }) => {
+const UserToolTip = ({ open, anchorEl, handleClose, handleLogout }) => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
@@ -95,7 +95,8 @@ const UserToolTip = ({ open, anchorEl, handleClose }) => {
       />
       </MenuItem>
 
-      <MenuItem disableRipple disableTouchRipple className="menu-item">
+      <MenuItem disableRipple disableTouchRipple className="menu-item"
+      onClick={handleLogout}>
         <ListItemIcon>
             <LogoutIcon className="menu-item-icon" />
         </ListItemIcon>

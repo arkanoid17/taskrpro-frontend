@@ -45,7 +45,7 @@ const Login = () => {
         const token = data.token
         if(token!=null){
           localStorage.setItem("token",token);
-          navigate('/dashboard');
+          window.location.reload();
         }else{
           showToast("Service not available at the moment!", "error");
         }

@@ -7,7 +7,7 @@ import { useState } from 'react';
 
 const logo = '/assets/logo.png';
 
-const MyToolbar = () =>{
+const MyToolbar = ({handleLogout}) =>{
 
     const [openPopover, setOpenPopover] = useState(false);
     const [anchorEl, setAnchorEl] = useState(null);
@@ -48,6 +48,7 @@ const MyToolbar = () =>{
                 open={openPopover}
                 anchorEl={anchorEl}
                 handleClose={handleClose}
+                handleLogout={handleLogout}
             />
 
                

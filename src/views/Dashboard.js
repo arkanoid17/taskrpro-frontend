@@ -6,6 +6,7 @@ import ServerConstants from '../server/ServerConstants';
 import SessionExpiredModal from "../components/SessionExpiredModal";
 import MyToolbar from "../components/MyToolbar";
 import SideMenu from "../components/SideMenu";
+import { waitFor } from '@testing-library/dom';
 
 const Dashboard = () => {
 
@@ -34,20 +35,22 @@ const Dashboard = () => {
         setSessionExpired(true);
     };
 
-    const handleLogout = () => {
+    const handleLogout = async() => {
         localStorage.clear();
-        navigate('/');
+        window.location.reload();
     };
 
     const toggleCollapse = () => {
         setCollapsed(!collapsed);
     };
 
+    
+
     return (
         <div style={{ display: 'flex' }}>
             <SideMenu collapsed={collapsed} toggleCollapse={toggleCollapse} />
             <div style={{ flexGrow: 1 }}>
-                <MyToolbar handleMenuClick={toggleCollapse} />
+                <MyToolbar handleMenuClick={toggleCollapse} handleLogout={handleLogout}/>
                 
                 {/* Page content will change here */}
                 <div style={{ padding: 20 }}>
