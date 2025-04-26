@@ -1,0 +1,41 @@
+.user-details{
+    padding: 8px 16px 8px 16px;
+}
+.user-name{
+    font-size: small;
+    font-weight: 500;
+}
+
+.name-role-box{
+    display:flex; 
+    flex-direction:column;
+    align-items: flex-start;
+    margin-left: 10px;
+}
+
+.role-subtitle{
+    font-size: 11px !important;
+    color: grey;
+    line-height: 1.5;
+}
+
+.divider{
+    color: grey;
+}
+
+.menu-item-icon{
+    color: #444;
+    width: 18px !important;
+    height: 18px !important;
+}
+
+.menu-item-text{
+    color: #444;
+    font-size: 12px !important;
+    font-weight: 400 !important;
+}
+
+.menu-item{
+    margin: 8px !important;
+    border-radius: '8px' !important;
+}

@@ -1,0 +1,56 @@
+.drawer {
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+  
+  .drawer .MuiDrawer-paper {
+    overflow-x: hidden;
+    box-sizing: border-box;
+    transition: width 0.3s ease;
+  }
+  
+  /* Expanded drawer */
+  .drawer-expanded {
+    width: 240px; /* or whatever your drawerWidth is */
+  }
+  
+  .drawer-expanded .MuiDrawer-paper {
+    width: 240px;
+  }
+  
+  /* Collapsed drawer */
+  .drawer-collapsed {
+    width: 60px; /* or whatever your collapsedWidth is */
+  }
+  
+  .drawer-collapsed .MuiDrawer-paper {
+    width: 60px;
+  }
+  
+
+  .selected-icon{
+    color: #222 !important;
+    width: 22px !important;
+    height: 22px !important;
+  }
+
+  .unselected-icon{
+    color: grey !important;
+    width: 22px !important;
+    height: 22px !important;
+  }
+
+  .selected-text{
+    margin-left: 10px !important;
+    color: #444 !important;
+    font-size: 12px!important;
+    font-weight: 500 !important;
+  }
+
+
+  .unselected-text{
+    color: grey !important;
+    font-size: 12px !important;
+    font-weight: 400 !important;
+    margin-left: 10px !important;
+  }

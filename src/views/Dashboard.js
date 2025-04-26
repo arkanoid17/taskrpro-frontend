@@ -1,55 +1,65 @@
+import { Outlet } from 'react-router-dom';
 import { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import apiCall from '../server/ApiCall'; 
 import ServerConstants from '../server/ServerConstants';
 import SessionExpiredModal from "../components/SessionExpiredModal";
-
+import MyToolbar from "../components/MyToolbar";
+import SideMenu from "../components/SideMenu";
 
 const Dashboard = () => {
 
     const navigate = useNavigate();
     const [sessionExpired, setSessionExpired] = useState(false);
-
+    const [collapsed, setCollapsed] = useState(true);
 
     useEffect(() => {
-        // Call API
         apiCall({
-            url: ServerConstants.baseUrl+ServerConstants.me,
+            url: ServerConstants.baseUrl + ServerConstants.me,
             method: 'GET',
             data: null,      
             headers: {},    
             onSuccess: handleSuccess,
             onError: handleError,
-          });
-      }, []); 
+        });
+    }, []); 
 
-      const handleSuccess = (data) => {
-        const user = JSON.stringify(data.user);
-        const token = data.token;
+    const handleSuccess = (data) => {
+        localStorage.setItem('user', JSON.stringify(data.user));
+        localStorage.setItem('token', data.token);
+    };
 
-        localStorage.setItem('user',user);
-        localStorage.setItem('token',token);
-      }
-
-      const handleError = (e) => {
+    const handleError = (e) => {
         console.log(e);
         setSessionExpired(true);
-      }
+    };
 
-      const handleLogout = () =>{
+    const handleLogout = () => {
         localStorage.clear();
         navigate('/');
-      }
+    };
 
+    const toggleCollapse = () => {
+        setCollapsed(!collapsed);
+    };
 
     return (
-       <div>
+        <div style={{ display: 'flex' }}>
+            <SideMenu collapsed={collapsed} toggleCollapse={toggleCollapse} />
+            <div style={{ flexGrow: 1 }}>
+                <MyToolbar handleMenuClick={toggleCollapse} />
+                
+                {/* Page content will change here */}
+                <div style={{ padding: 20 }}>
+                    <Outlet />
+                </div>
+            </div>
 
-        <SessionExpiredModal
-            open={sessionExpired}
-            onLogout={handleLogout}
-        />
-       </div>
+            <SessionExpiredModal
+                open={sessionExpired}
+                onLogout={handleLogout}
+            />
+        </div>
     );
 }
 
