@@ -1,6 +1,13 @@
 import axios from 'axios';
 
-const apiCall = async ({ url, method, data = null, headers = {}, onSuccess, onError }) => {
+const apiCall = async ({ url, method, data = null, headers, onSuccess, onError }) => {
+
+  const token = localStorage.getItem('token');
+
+  if(token){
+    headers['Authorization'] = `Bearer ${token}`;
+  }
+
   try {
     const response = await axios({
       method: method,    // e.g., GET, POST
