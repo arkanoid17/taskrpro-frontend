@@ -1,0 +1,89 @@
+.table-div{
+    width: 99% !important;
+    border-radius: 8px!important;
+    border: 1px solid #e6e6e6!important;
+    display: inline-block!important;
+    padding-left: 8px!important;
+    padding-right: 8px!important;
+}
+
+.table-header{
+    font-size: 13px!important;
+    color: #222!important;
+    font-weight: 600!important;
+    font-family:  Calibri, 'Trebuchet MS', sans-serif!important;
+}
+
+.table-value{
+    padding: 8px!important;
+    font-size: 12px!important;
+    color: #444!important;
+    font-weight: 500!important;
+}
+
+.table-title-value{
+    padding: 8px!important;
+    font-size: 12px!important;
+    color: #333!important;
+    font-weight: 500!important;
+}
+
+  .status-chip-pending {
+    display: inline-block!important;
+    font-size: 10px!important;
+    font-weight: 600!important;
+    padding: 5px 10px!important;
+    border-radius: 8px!important;
+    background-color: #d3d3d3!important; /* Light Grey */
+    color: #222!important;
+    border-color: #b0b0b0!important; /* Grey border */
+  }
+  
+  .status-chip-in-progress {
+    display: inline-block!important;
+    font-size: 10px!important;
+    font-weight: 600!important;
+    padding: 5px 10px!important;
+    border-radius: 8px!important;
+    background-color: #fff3cd!important; /* Light Yellow */
+    color: #f7bd11!important; /* Dark Yellow */
+    border-color: #ffeeba!important; /* Light Yellow border */
+  }
+  
+  .status-chip-completed {
+    display: inline-block!important;
+    font-size: 10px!important;
+    font-weight: 600!important;
+    padding: 5px 10px!important;
+    border-radius: 8px!important;
+    background-color: #b5eac2!important; /* Green */
+    color: rgb(27, 104, 43)!important;
+    border-color: #218838!important; /* Darker Green border */
+  }
+
+  .priority-div{
+    display: flex;
+    align-items: center;
+  }
+
+  .priority-icon-low{
+    size: 18;
+    color: rgb(12, 120, 208);
+  }
+  
+  .priority-icon-medium{
+    size: 18;
+    color: rgb(237, 154, 46);
+  }
+
+  .priority-icon-high{
+    size: 18;
+    color: rgb(213, 25, 25);
+  }
+
+  .priority-text{
+    font-size: 12px;
+    font-weight: 500;
+    color: #222;
+    margin-left: 5px;
+  }

@@ -1,0 +1,25 @@
+.assigned-users-container {
+    display: flex!important;
+    align-items: center!important;
+  }
+  
+  .assigned-user-avatar {
+    width: 28px!important;
+    height: 28px!important;
+    font-size: 12px!important;
+    margin-left: -8px!important;
+    border: 2px solid white!important;
+    background-color: #90caf9!important;
+    color: #0d47a1!important;
+    cursor: pointer!important;
+  }
+  
+  .assigned-user-avatar:first-child {
+    margin-left: 0!important;
+  }
+  
+  .extra-avatar {
+    background-color: #e0e0e0!important;
+    color: #424242!important;
+  }
+  

@@ -1,0 +1,16 @@
+.dropdown-box{
+    border-radius: 8px;
+    border: 1px solid #e6e6e6;
+    display: inline-block;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.custom-select .MuiSelect-select {
+    font-size: 12px; 
+}
+
+.custom-select-item .MuiMenuItem-root {
+    font-size: 12px; 
+}
+
